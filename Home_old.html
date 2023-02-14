@@ -1,0 +1,114 @@
+<!Doctype Html>  
+<Html>     
+<Head>      
+<script type="text/javascript" src="jquery-3.6.0.min.js">  
+</script>  
+<Title>     
+NEC-CP Package Management System 
+</Title>  
+<link rel="stylesheet" href="css/style.css"/>
+</Head> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<Body>
+<nav>
+    <a href="#" class="logo">
+       <img src="/images/nec.png" width="170" height="600"/> 
+    </a>
+    <div class="navbar">
+      <a href="Home.html">Home</a>
+      <div class="subnav">
+        <button class="subnavbtn">Solution <i class="fa fa-caret-down"></i></button>
+        <div class="subnav-content">
+          <a href="Solution_all.html">ALL</a>
+          <a href="Solution_oran.html">ORAN</a>
+          <a href="Solution_5G.html">5GC</a>
+        </div>
+      </div>
+      <div class="subnav">
+        <button class="subnavbtn">Products <i class="fa fa-caret-down"></i></button>
+        <div class="subnav-content">
+          <a href="Product_CloudPF.html">CloudPF</a>
+          <a href="Product_CU_DU.html">CUDU</a>
+          <a href="#package">vEMS</a>
+          <a href="#express">RU</a>
+        </div>
+      </div>
+      <div class="subnav">
+        <button class="subnavbtn">Partners <i class="fa fa-caret-down"></i></button>
+        <div class="subnav-content">
+          <a href="#link1">Rakuten Symphony</a>
+          <a href="Vendor_NEC.html">NEC</a>
+        </div>
+      </div>
+      <a href="#contact">Contact</a>
+    </div>
+  <div class="search";>
+    <input type="text" placeholder="Search Here.."/>
+    <i class="fa fa-search icon"></i>
+  </div>
+</nav>
+<div class="fixed-footer" style="text-align: center;">
+    <div class="container">Copyright &copy; NEC Corporation</div>        
+</div>
+
+<div class="dropdown">
+<form action="Product_CloudPF.html">
+<fieldset>
+    <legend>Get ORMS Package</legend><br>  
+    <div class="searchbar">
+      <form action="Product_CloudPF.html">
+          <input type="text"
+              placeholder="Search Package by Keyword"
+              name="searchbar">
+           <button>
+              <i class="fa fa-search"
+                  style="font-size: 18px;">
+              </i>
+          </button>
+      </form>
+
+      <select id="category" name="category">
+        <option value ="0">Choose Category</option>
+        <option value="oran">ORAN</option>
+        <option value="RHOCP">RHOCP</option>
+        <option value="4G CNF">4G CNF</option>
+        <option value="5G CNF">5G CNF</option>
+      </select>
+      <select id="vendor" name="vendor">
+        <option value ="0">Choose Vendor</option>
+        <option value="dell">Dell</option>
+        <option value="hpe">HPE</option>
+        <option value="cisco">Cisco</option>
+        <option value="supermicro">Supermicro</option>
+      </select>
+      <select id="partner" name="partner">
+        <option value ="0">Choose Partner</option>
+        <option value="rakuten">Rakuten</option>
+        <option value="nec">NEC Cloud PF</option>
+      </select>
+      <select id="Status" name="Vendor status">
+        <option value ="0">Choose Vendor Status</option>
+        <option value="rel">Vendor Released</option>
+        <option value="gate">Gating</option>
+      </select>
+      <select id="Status" name="DQA status">
+        <option value ="0">Choose DQA Status</option>
+        <option value="pass">Testing Passed</option>
+        <option value="fail">Testing failed</option>
+        <option value="pro">Testing in progress</option>
+        <option value="tbs">Testing not started</option>
+      </select>
+      <select id="version" name="version">
+        <option value ="0">Choose Version</option>
+        <option value="1">1.0</option>
+        <option value="2">1.2</option>
+        <option value="3">2.1</option>
+      </select>
+      <input type="submit" value="Find Package">
+      <input type="reset" value="Reset">
+    </form>
+  </div>
+  </div>
+</fieldset>
+</Body>   
+</Html>  

@@ -1,0 +1,23 @@
+// First, we need to import the fs module to read the text file
+const fs = require('fs');
+
+// Next, we need to define a function to read the text file and display its tables on the page
+function displayTables(filePath) {
+  // Use the fs.readFileSync method to read the contents of the file
+  const fileContents = fs.readFileSync(filePath, 'utf8');
+
+  // Next, we need to extract the tables from the file contents
+  const tables = fileContents.match(/<table>(.|\n)*?<\/table>/g);
+
+  // Loop through each table and add it to the page
+  tables.forEach(table => {
+    // Create a new div element to hold the table
+    const tableContainer = document.createElement('div');
+
+    // Set the inner HTML of the div to the table
+    tableContainer.innerHTML = table;
+
+    // Append the div to the page
+    document.body.appendChild(tableContainer);
+  });
+}

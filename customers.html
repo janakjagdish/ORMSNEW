@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <title>NEC-CP Package Management System</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/release.css" />
+    <link rel="style" href="css/release2.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="./fetch/customer.js" type="module" defer></script>
+  </head>
+  <body>
+    <div class="topnav-right" style="align-self: flex-end; margin-top: 10px">
+      <a href="add_customer.html">add Customer</a>
+      <a href="vendor.html">vendors</a>
+      <a href="login.html" id="logoutBtn">Logout</a>
+    </div>
+    <div class="fixed-footer" style="text-align: center">
+      <div class="container">Copyright © NEC Corporation</div>
+    </div>
+    <!-- Side navigation -->
+    <a href="Home.html" style="font-size: 24px; color: navy"><u>ORMS Web</u></a>
+    <div class="sidenav">
+      <div class="subnav">
+        <button class="subnavbtn">
+          Solution Management <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="subnav-content">
+          <a href="create_solution.html">Create Solution</a>
+          <a href="create_solutionVersion.html">Add Solution Version</a>
+          <a href="create_testReport.html">Register Test Report</a>
+        </div>
+      </div>
+
+      <div class="subnav">
+        <button class="subnavbtn">
+          Product Management <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="subnav-content">
+          <a href="create_product.html">Create Product</a>
+          <a href="create_productVersion.html">Add Product Version</a>
+          <a href="Upload_Package.html">Register Packages</a>
+          <a href="create_releaseNote.html">Register Release Note</a>
+        </div>
+      </div>
+    </div>
+    <table
+      id="detail_table"
+      class="detail style=height: 400px;"
+      style="width: 500px; margin-top: 50px"
+    >
+      <tr>
+        <th colspan="5" style="background-color: lightblue; text-align: center">
+          Customers
+        </th>
+      </tr>
+      <tr style="font-weight:bold"><td>S. No.</td><td> Name </td><td> Short-Name </td></tr>
+      <tbody class="geeks"></tbody>
+    </table>
+  </body>
+</html>

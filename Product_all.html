@@ -1,0 +1,128 @@
+<!Doctype Html>  
+<Html>     
+<Head>      
+<script type="text/javascript" src="jquery-3.6.0.min.js">  
+
+</script>  
+<Title>     
+NEC-CP Package Management System 
+</Title>  
+<link rel="stylesheet" href="css/style.css"/>
+</Head> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<Body>
+  <div class="topnav-right" style="align-self: flex-end; margin-top: 10px;">
+    <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+    <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+   </div>
+   
+   <div class="fixed-footer" style="text-align: center;">
+       <div class="container">Copyright &copy; NEC Corporation</div>        
+   </div>
+   
+   
+<!-- Side navigation -->
+<a href="Home.html"style="font-size: 25px; color: black; background-color: lightblue;"><u>ORMS Web</u></a>
+<div class="sidenav">
+   <div class="subnav">
+    <button class="subnavbtn">Solution <i class="fa fa-caret-down"></i></button>
+    <div class="subnav-content">
+      <a href="Solution_all.html">ALL</a>
+      <a href="Solution_oran.html">ORAN</a>
+      <a href="Solution_5G.html">5GC</a>
+    </div><br></br></div>
+    <div class="subnav">
+    <button class="subnavbtn">Products <i class="fa fa-caret-down"></i></button>
+    <div class="subnav-content">
+      <a href="Product_CloudPF.html">CloudPF</a>
+      <a href="Product_CU_DU.html">CUDU</a>
+      <a href="#package">vEMS</a>
+      <a href="#express">RU</a>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+<center>
+  <br></br><b style="height: 20%;">Filter table with any keyword:
+  <input id="gfg" type="text"
+      placeholder="Search here">
+  </b>
+
+  <div style="height: 150px; overflow: auto">
+  <table id="detail_table" class="detail style=height: 400px">
+    <thread>
+    <tr style="background-color: lightblue;">
+      <th>Product Name</th>
+      <th>Vendor</th>
+      <th>Last Update</th>
+      <th>Label</th>
+      <th>Description</th>
+    </tr>
+    </thread>
+    <tbody id="geeks">
+      <tr>
+        <td>5G-CU</a></td>
+        <td>Rakuten</td>
+        <td>12-08-2022        </td>
+        <td>CU,5G</a>    </td>
+        <td>A* 5G CU product        </td>
+      </tr>
+      <tr>
+        <td>5G4G-CU        </a></td>
+        <td>Rakuten</td>
+        <td>12-08-2022        </td>
+        <td>CU,5G,4G</a>    </td>
+        <td>Mavenir 5G-4G CU product        </td>
+      </tr>
+      <tr>
+        <td>EMS       </a></td>
+        <td>Rakuten</td>
+        <td>12-08-2022        </td>
+        <td>CU,5G,4G</a>    </td>
+        <td>Mavenir 5G-4G CU product        </td>
+      </tr>
+      <tr>
+        <td>CloudPF_Openshift        </a></td>
+        <td>NEC</td>
+        <td>12-08-2022        </td>
+        <td>CU,5G,4G</a>    </td>
+        <td>Mavenir 5G-4G CU product        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $("#gfg").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#geeks tr").filter(function() {
+        $(this).toggle($(this).text()
+        .toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>  
+<script type="text/javascript">  
+  $(document).ready(function () {  
+          $('tr.parent')  
+              .css("cursor", "pointer")  
+              .attr("title", "Click to expand/collapse")  
+              .click(function () {  
+                  $(this).siblings('.child-' + this.id).toggle();  
+              });  
+          $('tr[@class^=child-]').hide().children('td');  
+  });  
+  </script>  
+<script type="text/javascript">
+var currentUserName=_spPageContextInfo.userDisplayName;
+</script>
+</Body>   
+</Html>  

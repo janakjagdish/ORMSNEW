@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script type="text/javascript" src="jquery-3.6.0.min.js">  
+  </script>  
+      <script src=
+  "https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href=
+  "https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+  <Title>     
+  NEC-CP Package Management System 
+  </Title>  
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="./fetch/productVMW.js" defer type="module"></script> 
+  <style>
+    .none{
+      display: none !important;
+    }
+    tr.parent.rotate button{
+      transform:rotate(180deg) ;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</Head> 
+  <Body>
+  
+    <div class="topnav-right" style="align-self: flex-end; margin-top: 10px;">
+      <a href="#"><i class="fa fa-upload"></i> Upload</a>
+      <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+      <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+     </div>
+     
+     <div class="fixed-footer" style="text-align: center;">
+         <div class="container">Copyright &copy; NEC Corporation</div>        
+     </div>
+     
+     
+  <!-- Side navigation -->
+  <a href="Home.html"style="font-size: 25px; color: black; background-color: lightblue;"><u>ORMS Web</u></a>
+  <div class="sidenav">
+     <div class="subnav">
+      <button class="subnavbtn">Solution <i class="fa fa-caret-down"></i></button>
+      <div class="subnav-content">
+        <a href="Solution_oran.html">ORAN</a>
+        <a href="Solution_5G.html">5GC</a>
+      </div>
+      </div>
+      <div class="subnav">
+      <button class="subnavbtn">Products <i class="fa fa-caret-down"></i></button>
+      <div class="subnav-content">
+        <a href="Product_CloudPF_OCP.html">CloudPF OCP</a>
+        <a href="Product_CloudPF_VMW.html">CloudPF VMW</a>
+        <a href="Product_DU5G.html">DU 5G</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="main">
+  <div align="center" class="table table-responsive">
+    <br>  </br><b style="height: 40%;">Filter table with any keyword:
+    <input id="gfg" type="text"
+        placeholder="Search here">
+    </b>
+   
+    <table id="detail_table" class="detail">
+      <thead> 
+        <tr style="background-color: lightblue;">
+          <th>Version</th>
+          <th>Vendor</th>
+          <th>Last Update</th>
+          <th>Status</th>
+          <th>Release Date</th>
+          <th>No of Items</th>
+          <th>Release Note</th>
+        </tr>
+      </thead>
+      <tbody id="geeks">
+      </tbody>
+    </table>
+    </div>
+  
+  <!-- Add icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <!-- Auto width -->
+  <button class="btn" onclick="abc();"><i class="fa fa-download"></i> Download</button>  
+  
+  
+    <script>
+    function abc()
+    {
+    window.location.href='solution_version.php';
+    }
+    
+      $(document).ready(function() {
+        $("#gfg").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#geeks tr").filter(function() {
+            $(this).toggle($(this).text()
+            .toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+  
+    </script>
+  
+  <script type="text/javascript" defer>  
+      $(document).ready(function () {
+  $('#checkbox').change(function () {
+      if (!this.checked) 
+          $('#row').fadeIn('slow');
+      else 
+          $('#row').fadeOut('slow');
+  });
+  });
+  </script>
+  
+  </Body>  
+</html>

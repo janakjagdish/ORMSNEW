@@ -1,0 +1,124 @@
+<DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="css/release2.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script defer src="./upload/createSolution.js"></script>
+        <title>NEC-CP Package Management System</title>  
+    </head>
+    <body>
+         
+      <div class="topnav-right" style="align-self: flex-end; margin-top: 10px;">
+       <a class="active" href="Home.html"><i class="fa fa-fw fa-home"></i> Home</a>
+       <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+       <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+      </div>
+      <!-- Side navigation -->
+   <a href="Home.html" style="font-size: 24px; color: navy; "><u>ORMS Web</u></a>
+    <div class="sidenav">
+    <div class="subnav">
+      <button class="subnavbtn">Solution Management <i class="fa fa-caret-down"></i></button>
+      <div class="subnav-content">
+        <a href="create_solution.html">Create Solution</a>
+        <a href="create_solutionVersion.html">Add Solution Version</a>
+        <a href="create_testReport.html">Register Test Report</a>
+      </div>
+  </div>
+
+  <div class="subnav">
+      <button class="subnavbtn">Product Management <i class="fa fa-caret-down"></i></button>
+      <div class="subnav-content">
+        <a href="create_product.html">Create Product</a>
+        <a href="create_productVersion.html">Add Product Version</a>
+        <a href="Upload_Package.html">Register Packages</a>
+        <a href="create_releaseNote.html">Register Release Note</a>
+      </div>
+       </div>
+         </div>
+        <!-- A functional html code-->
+       <h3 style="text-align: center;">Create Solution Catalogue</h3>
+        <div class="janak">
+            <fieldset>
+                <div class="one">
+                
+                 <label for="name"> Please Enter Solution Name:</label>
+                 <br>
+                 <input type="text" id="name" placeholder="e.g. 5G_MAV_VMW_EDG"><br>
+                
+                   <br>
+                    
+                  Please Enter The Description Of Solution:<br>
+               <input type="text" id="desc" class="myselect" placeholder="This is Solution of"><br>
+               <br>
+               <label for="label"> Please Select Labels:</label>
+                   <br>
+                   <input type="text" id="label" placeholder="e.g. ORAN,5G"><br>
+                   
+                    <br>
+                    <label for="customer"> Please Choose Released Customer Name:</label>
+                    <br>
+
+                <!--     <optgroup label="Customer Name">
+                        <option value="" disabled selected hidden style="font-size:14px;">Choose Customer Name</option>
+                        <option value="TF-Germany">TF-Germany</option>
+                        <option value="TF-Spain">TF-Spain</option>
+                        <option value="TF-Brazil">TF-Brazil</option>
+                        <option value="Thai AIS">Thai AIS</option>  
+                        <option value="not in list">not in list</option>
+                    </optgroup> -->
+                    <div id="customer" name="product" >
+                        <button>+</button>
+                        <ul>
+                           <!--  <li><input type="checkbox" value="TF-Germany" id="TF-Germany"><label for="TF-Germany">TF-Germany</label></li>
+                            <li><input type="checkbox" value="TF-Spain" id="TF-Spain"><label for="TF-Spain">TF-Spain</label></li>
+                            <li><input type="checkbox" value="TF-Brazil" id="TF-Brazil"><label for="TF-Brazil">TF-Brazil</label></li>
+                            <li><input type="checkbox" value="Thai AIS" id="Thai AIS"><label for="Thai AIS">Thai AIS</label></li> -->
+                        </ul>
+                     </div><br>
+                     <br>
+                     <br>
+                     <br>
+    <!--                  <label>*Enter New Released Customer Name</label><br>
+                     <input type="text" id="Released Customer" placeholder="if Customer name not in list"> --><br>
+                     <br>
+                 </select><br>
+                 <label for="vendor"> Please Select vendor:</label>
+                 <br>
+                  <select id="vendor" name="vendor" class="myselect" >
+                      <optgroup label="vendor">
+                          <option value="" disabled selected hidden style="font-size:14px;">Choose Vendor </option>
+                      </optgroup>
+                  </select><br>
+                 <br>
+                 <label for="product"> Please Select included products:</label>
+                 <br>
+                 <div id="product" name="product" >
+                    <button>+</button>
+                    <ul>
+                    </ul>
+                 </div>
+                 <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                 <button  onclick="submit_data()">Submit</button><br>
+                
+                <progress  max=”100” value=”0”></progress>            
+                    
+                    
+                </div>
+                <dialog id="confirmationDialog">
+                    <button id ="cancelBtn">Cancel</button>
+                    <button id="confirmBtn">Confirm</button>
+                </dialog>
+            </fieldset>
+        <div>
+    <div class="fixed-footer">
+        <div class="container">Copyright &copy; NEC Corporation</div>        
+    </div>
+        
+    </body>
+    </html>

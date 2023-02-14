@@ -1,0 +1,118 @@
+<!doctype html>
+<head>
+<Title>     
+    NEC-CP Package Management System 
+</Title>  
+    <link rel="stylesheet" href="css/release2.css"/>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.357.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./upload/uploadProduct1.js" defer></script>
+</head>
+<body>
+     
+  <div class="topnav-right" style="align-self: flex-end; margin-top: 10px;">
+   <a class="active" href="Home.html"><i class="fa fa-fw fa-home"></i> Home</a>
+   <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+   <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+  </div>
+
+            <!-- Side navigation -->
+      <a href="Home.html" style="font-size: 24px; color: navy; "><u>ORMS Web</u></a>
+    <div class="sidenav">
+    <div class="subnav">
+      <button class="subnavbtn">Solution Management <i class="fa fa-caret-down"></i></button>
+      <div class="subnav-content">
+        <a href="create_solution.html">Create Solution</a>
+        <a href="create_solutionVersion.html">Add Solution Version</a>
+        <a href="create_testReport.html">Register Test Report</a>
+      </div>
+  </div>
+
+  <div class="subnav">
+      <button class="subnavbtn">Product Management <i class="fa fa-caret-down"></i></button>
+      <div class="subnav-content">
+        <a href="create_product.html">Create Product</a>
+        <a href="create_productVersion.html">Add Product Version</a>
+        <a href="Upload_Package.html">Register Packages</a>
+        <a href="create_releaseNote.html">Register Release Note</a>
+      </div>
+          </div>
+            </div>
+    <!-- A functional html code-->
+      <h3 style="text-align: center;">Create Product Catalogue</h3>
+    <div class="janak">
+        <fieldset class="edit">
+            <div class="one">
+            <label for="vendor"> Please Select Vendor Name:</label>
+            <br>
+             <select id="vendor" name="vendor" class="myselect">
+                 <optgroup label="Vendor Name">
+                     <option value="" disabled selected hidden style="font-size:14px;">Choose Vendor Name</option>
+                 </optgroup>
+             </select><br>
+             <br>
+             <br>
+             <label for="nmae"> Please Enter Product Name:</label>
+             <br>
+             <input type="text" id="Pnmae" placeholder="e.g. CU_CNF_4G5G"><br>
+             <br>
+             <br>
+             <div
+             id="product"
+             class="view"
+             name="product"
+             style="
+               display: flex;
+               justify-content: space-between;
+               position: relative;
+             "
+           >
+             <button id="add" style="position: absolute; right: 0">+</button>
+             <ul style=" width: 260px; margin-top: 30px">
+            <li> <input type="text" placeholder="please insert package name"  class="packages"/></li>
+            </ul>
+           </div>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+              <br/>
+              Please Enter The Description Of Product:<br>
+           <input type="text" id="metadata2" class="myselect"><br>
+           <br>
+ 
+           <label for="label"> Please Select Labels:</label>
+               <br>
+                <select id="label" name="label" class="myselect" >
+                    <optgroup label="Label">
+                        <option value="" disabled selected hidden style="font-size:14px;">Choose Label </option>
+                        <option value="4G">4G</option>
+                        <option value="5G">5G</option>
+                        <option value="CU">CU</option>
+                        <option value="DU">DU</option>  
+                        <option value="vEMS">vEMS</option>
+                        <option value="CloudPF">CloudPF</option>
+                    </optgroup>
+                </select><br>
+                <br>
+             <br>
+             <button  onclick="submit_data()">Submit</button><br>
+            
+            <progress  max=”100” value=”0”></progress>            
+                
+                
+            </div>
+            
+        </fieldset>
+        <dialog id="confirmationDialog">
+            <button id="cancelBtn">Cancel</button>
+            <button id="confirmBtn">Confirm</button>
+        </dialog>
+    <div>
+<div class="fixed-footer">
+    <div class="container">Copyright &copy; NEC Corporation</div>        
+</div>
+    
+</body>
+</html>

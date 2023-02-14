@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.357.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script
+      type="text/javascript"
+      src="./upload/uploadPackage.js"
+      defer
+    ></script>
+    <title>NEC-CP Package Management System</title>
+    <link rel="stylesheet" href="css/release.css" />
+    <link rel="stylesheet" href="css/release2.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="topnav-right" style="align-self: flex-end; margin-top: 10px">
+      <a class="active" href="Home.html"
+        ><i class="fa fa-fw fa-home"></i> Home</a
+      >
+      <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+      <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+    </div>
+    <!-- Side navigation -->
+     <a href="Home.html" style="font-size: 24px; color: navy"><u>ORMS Web</u></a>
+    <div class="sidenav">
+      <div class="subnav">
+        <button class="subnavbtn">Solution Management</button>
+        <div class="subnav-content">
+          <a href="Solution_oran.html">ORAN</a>
+          <a href="Solution_5G.html">5GC</a>
+          <a href="create_solution.html">Add Solution</a>
+          <a href="create_solutionVersion.html">Add Solution Version</a>
+          <a href="create_testReport.html">Add Test Report</a>
+        </div>
+      </div>
+      <div class="subnav">
+        <button class="subnavbtn">Product Management</button>
+        <div class="subnav-content">
+          <a href="Product_CloudPF_OCP.html">CloudPF OCP</a>
+          <a href="Product_CloudPF_VMW.html">CloudPF VMW</a>
+          <a href="Product_DU5G.html">DU 5G</a>
+          <a href="create_product.html">Add Product</a>
+          <a href="create_productVersion.html">Add Product Version</a>
+          <a href="create_releaseNote.html">Add Release Note</a>
+        </div>
+      </div>
+    </div>
+    <!-- A functional html code-->
+ 
+    <h3 style="text-align: center;">Register Packages</h3>
+    <div class="janak">
+      <fieldset>
+        <div class="one">
+          <br />
+          <br />
+          <br />
+          <label for="products"
+            >choose Product Name associated with Package</label
+          ><br />
+          <select name="products" id="products">
+            <optgroup label="product name">
+              <option value="" disabled selected hidden style="font-size: 14px">
+                Choose product Name
+              </option>
+            </optgroup></select
+          ><br />
+          <br />
+          <br />
+          <label for="productVersion"
+            >choose Product Version associated with Packages</label
+          >
+          <br />
+
+          <select name="productVersion" id="productVersion">
+            <optgroup label="product version">
+              <option value="" disabled selected hidden style="font-size: 14px">
+                Choose product version
+              </option>
+            </optgroup>
+          </select>
+          <br />
+          <br />
+          <br />
+          <div
+            id="product"
+            class="view"
+            name="product"
+            style="
+              display: flex;
+              justify-content: space-between;
+              position: relative;
+            "
+          >
+            <button id="add" style="position: absolute; right: 0">+</button>
+            <ul style="height: 225px; width: 260px; margin-top: 30px"></ul>
+            <ul
+              style="margin-top: 30px; height: 225px; width: 265px"
+              id="nameUl"
+            ></ul>
+          </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <button onclick="s3upload()" id="submitBtn">Submit</button><br />
+          <script>
+            $("select.label").change(function () {
+              var other_val = $(
+                'select.label option[value="' + $(this).val() + '"]'
+              ).data("value");
+
+              console.log(other_val);
+            });
+          </script>
+          <progress max="100" value="0"></progress>
+        </div>
+
+        <div class="fixed-footer" style="text-align: center">
+          <div class="container">Copyright &copy; NEC Corporation</div>
+        </div>
+      </fieldset>
+    </div>
+    <table>
+      <thead>
+        <th>Name</th>
+      </thead>
+      <tbody id="S3Body"></tbody>
+    </table>
+  </body>
+</html>

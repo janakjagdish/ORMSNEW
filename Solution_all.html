@@ -1,0 +1,123 @@
+<!Doctype Html>  
+<Html>     
+<Head>      
+<script type="text/javascript" src="jquery-3.6.0.min.js">  
+</script>  
+<Title>     
+NEC-CP Package Management System 
+</Title>  
+<link rel="stylesheet" href="css/style.css"/>
+</Head> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<Body>
+  <div class="topnav-right" style="align-self: flex-end; margin-top: 10px;">
+    <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+    <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+   </div>
+   
+   <div class="fixed-footer" style="text-align: center;">
+       <div class="container">Copyright &copy; NEC Corporation</div>        
+   </div>
+   
+   
+<!-- Side navigation -->
+<a href="Home.html"style="font-size: 25px; color: black; background-color: lightblue;"><u>ORMS Web</u></a>
+<div class="sidenav">
+   <div class="subnav">
+    <button class="subnavbtn">Solution <i class="fa fa-caret-down"></i></button>
+    <div class="subnav-content">
+      <a href="Solution_all.html">ALL</a>
+      <a href="Solution_oran.html">ORAN</a>
+      <a href="Solution_5G.html">5GC</a>
+    </div></div>
+    <div class="subnav">
+    <button class="subnavbtn">Products <i class="fa fa-caret-down"></i></button>
+    <div class="subnav-content">
+      <a href="Product_CloudPF.html">CloudPF</a>
+      <a href="Product_CU_DU.html">CUDU</a>
+      <a href="#package">vEMS</a>
+      <a href="#express">RU</a>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+<center>
+  <br></br><b style="height: 40%;">Filter table with any keyword:
+  <input id="gfg" type="text"
+      placeholder="Search here">
+  </b>
+  <table id="detail_table" class="detail">
+    <thread>
+    <tr style="background-color: lightblue;">
+      <th>Solution Name</th>
+      <th>Last Update</th>
+      <th>Released Customers</th>
+      <th>Label</th>
+      <th>Description</th>
+    </tr>
+    </thread>
+    <tbody id="geeks">
+      <tr>
+        <td><a href="Solution_version.html" style="color: darkcyan ; font-weight: bolder; text-decoration: underline;";>5-G_RAK_OCP_HSC </a></td>
+        <td>12-08-2022        </td>
+        <td>TF-Germany        </td>
+        <td><a href="Solution_oran.html">ORAN </a>    </td>
+        <td>ORAN 5G OCP Multicluster solution        </td>
+      </tr>
+      <tr>
+        <td>5-G_MAV_VMW_EDG        </td>
+        <td>05-08-2022        </td>
+        <td>TF-Spain, TF-Brazil        </td>
+        <td><a href="Solution_oran.html">ORAN </a>       </td>
+        <td>ORAN 5G Mavenir, Vmware Edge cluster solution        </td>
+      </tr>
+      <tr>
+        <td>45G_non_OCP_SGC        </td>
+        <td>18-08-2022        </td>
+        <td>Thai AIS        </td>
+        <td><a href="Solution_5G.html">5GC </a>     </td>
+        <td>5GC 4G5G OCP single cluster solution        </td>
+      </tr>
+      <tr>
+        <td>5-G_non_OCP_SGC        </td>
+        <td>13-05-2022        </td>
+        <td>-</td>
+        <td><a href="Solution_5G.html">5GC </a> , <a href="Solution_oran.html">ORAN </a>       </td>
+        <td>ORAN/5GC OCP single cluster solution        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $("#gfg").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#geeks tr").filter(function() {
+        $(this).toggle($(this).text()
+        .toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>  
+<script type="text/javascript">  
+  $(document).ready(function () {  
+          $('tr.parent')  
+              .css("cursor", "pointer")  
+              .attr("title", "Click to expand/collapse")  
+              .click(function () {  
+                  $(this).siblings('.child-' + this.id).toggle();  
+              });  
+          $('tr[@class^=child-]').hide().children('td');  
+  });  
+  </script>  
+<script type="text/javascript">
+var currentUserName=_spPageContextInfo.userDisplayName;
+</script>
+</Body>   
+</Html>  

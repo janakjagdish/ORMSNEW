@@ -1,0 +1,129 @@
+<!doctype html>
+<head>
+    
+    <title>     
+        NEC-CP Package Management System 
+    </title>  
+        <link rel="stylesheet" href="css/release.css"/>
+        <link rel="stylesheet" href="css/release2.css"/>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.357.0.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="./upload/createSolutionVersion.js" defer></script>
+    </head>
+    <body>
+         
+      <div class="topnav-right" style="align-self: flex-end; margin-top: 10px;">
+       <a class="active" href="Home.html"><i class="fa fa-fw fa-home"></i> Home</a>
+       <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+       <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+      </div>
+
+          <!-- Side navigation -->
+    <a href="Home.html" style="font-size: 24px; color: navy; "><u>ORMS Web</u></a>
+    <div class="sidenav">
+    <div class="subnav">
+      <button class="subnavbtn">Solution Management <i class="fa fa-caret-down"></i></button>
+      <div class="subnav-content">
+        <a href="create_solution.html">Create Solution</a>
+        <a href="create_solutionVersion.html">Add Solution Version</a>
+        <a href="create_testReport.html">Register Test Report</a>
+      </div>
+  </div>
+
+  <div class="subnav">
+      <button class="subnavbtn">Product Management <i class="fa fa-caret-down"></i></button>
+      <div class="subnav-content">
+        <a href="create_product.html">Create Product</a>
+        <a href="create_productVersion.html">Add Product Version</a>
+        <a href="Upload_Package.html">Register Packages</a>
+        <a href="create_releaseNote.html">Register Release Note</a>
+      </div>
+  </div>
+    </div>
+
+      <h3 style="text-align: center;">Add Solution Version</h3>
+      <div class="janak">
+        <fieldset>
+            <div class="one">
+
+
+           <label for="Solution"> Please Select Target Solution :</label>
+             <br>
+             
+              <select id="Solution" name="Solution" class="myselect">
+                  <optgroup label="Solution">
+                      <option value="" disabled selected hidden style="font-size:14px;">Choose Target solution:</option>
+                  </optgroup>
+              </select><br>
+              <br>
+              <label for="Major Version"> Please Enter Major Version</label>
+              <br>
+                  <input type="text" id="major">
+               <br>
+               <label for="Minor Version"> Please Enter Minor Version</label>
+               <br>
+                   <input type="text" id="minor">
+                <br>
+                <label for="Patch Version"> Please Enter Patch Version</label>
+                <br>
+                    <input type="text" id="patch">
+                 <br><br>
+                 <label for="customer"> Please Choose Released Customer Name:</label>
+                 <br>
+                 <div id="customer" name="product" >
+                     <button>+</button>
+                     <ul>
+                        <!--  <li><input type="checkbox" value="TF-Germany" id="TF-Germany"><label for="TF-Germany">TF-Germany</label></li>
+                         <li><input type="checkbox" value="TF-Spain" id="TF-Spain"><label for="TF-Spain">TF-Spain</label></li>
+                         <li><input type="checkbox" value="TF-Brazil" id="TF-Brazil"><label for="TF-Brazil">TF-Brazil</label></li>
+                         <li><input type="checkbox" value="Thai AIS" id="Thai AIS"><label for="Thai AIS">Thai AIS</label></li> -->
+                     </ul>
+                  </div><br>
+                  <br>
+                  <br>
+             <!--     <label for="vendor"> Please Select Vendor Name:</label>
+                 <br>
+                  <select id="vendor" name="vendor" class="myselect">
+                      <optgroup label="Vendor Name">
+                          <option value="" disabled selected hidden style="font-size:14px;">Choose Vendor Name</option>
+                      </optgroup>
+                  </select><br>
+                  <br>
+             <label for="Pnmae"> Please Select Associated Product:</label>
+             <br>
+             
+             <select id="pname" name="Pnmae" class="myselect">
+                <optgroup label="Product Name">
+                    <option value="" disabled selected hidden style="font-size:14px;">Choose Product:</option>
+                </optgroup>
+            </select><br>
+            <br> -->
+
+            <div id="product" name="product" >
+                <button>+</button>
+                <ul>
+                </ul>
+             </div><br>
+              <br>
+              <br>
+              <label for="report" >Please Upload DQA Report</label>
+              <input type="file" id="fileUpload" accept=".csv" /><br />
+    
+              <br />
+              <br>
+              <button id="four" >Submit</button><br>
+        </div>
+            
+
+        <dialog id="confirmationDialog">
+            <button id="cancelBtn">Cancel</button>
+            <button id="confirmBtn">Confirm</button>
+        </dialog>
+        </fieldset>
+    <div>
+<div class="fixed-footer">
+    <div class="container">Copyright &copy; NEC Corporation</div>        
+</div>
+    
+</body>
+</html>

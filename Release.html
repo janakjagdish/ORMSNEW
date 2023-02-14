@@ -1,0 +1,204 @@
+<!doctype html>
+<head>
+    
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.357.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript"> 
+//Bucket Configurations
+
+    function s3upload() {  
+        let bucket = document.getElementById("ddlViewBy").value;
+        //Bucket Configurations
+        var bucketName =  bucket;
+        var bucketRegion = 'ap-south-1';
+        var IdentityPoolId = 'ap-south-1:8d50c9ad-a0f9-4b83-a864-63751f4f3f68';
+
+        AWS.config.update({
+                region: bucketRegion,
+                credentials: new AWS.CognitoIdentityCredentials({
+                IdentityPoolId: IdentityPoolId
+                })
+            });
+
+            var s3 = new AWS.S3({
+                apiVersion: '2006-03-01',
+                params: {Bucket: bucketName}
+            });
+              var files = document.getElementById('fileUpload').files;
+              let snmae = document.getElementById("sname").value;
+              let Description = document.getElementById("metadata2").value;
+              let Label = document.getElementById("label").value;
+              /*let LastUpdate = document.getElementById("metadata4").value;*/
+              let customer = document.getElementById("customer").value;
+              let item = document.getElementById("I1").value;
+              let element4 = document.getElementById("I2").value;
+              let element5 = document.getElementById("I3").value;
+              let element6 = document.getElementById("I4").value;
+              let type = document.getElementById("stype").value;
+              if (files) 
+              {
+                  var file = files[0];
+                  var fileName = file.name;
+                  var filePath = fileName;
+                  var fileUrl = 'https://' + bucketRegion + '.amazonaws.com/' +bucketName+'/';
+                 
+                  s3.upload({
+                                  Key: filePath,
+                                  Body: file,
+                                  ACL: 'public-read',
+                                  Metadata: {name: snmae, Description:Description,Label:Label, releasedcustomer:customer,item:item,element4:element4,element5:element5,element6:element6,type:type}
+                              }, function(err, data) {
+                                  if(err) {
+                                      reject('error');
+                                  }
+                                  
+                                  alert('Successfully Uploaded!');
+                              }).on('httpUploadProgress', function (progress) {
+                                  var uploaded = parseInt((progress.loaded * 100) / progress.total);
+                                  $("progress").attr('value', uploaded);
+                              });
+              }
+                      
+    };
+ 
+</script>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<script type="text/javascript" src="jquery-3.6.0.min.js">  </script>  
+<Title>     
+    NEC-CP Package Management System 
+</Title>  
+    <link rel="stylesheet" href="css/release.css"/>
+    
+</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+     
+  <div class="topnav-right" style="align-self: flex-end; margin-top: 10px;">
+   <a class="active" href="Home.html"><i class="fa fa-fw fa-home"></i> Home</a>
+   <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+   <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+  </div>
+  <!-- Side navigation -->
+  <div class="topnav-left" style="align-self: flex-end; margin-top: 10px;">
+  <a href="Home.html" style="font-size: 24px; color: navy; "><u>ORMS Web</u></a>
+  </div>
+  <div class="sidenav">
+    
+        <div class="subnav">
+            <button class="subnavbtn">Solutions <i class="fa fa-caret-down"></i></button>
+                <div class="subnav-content">
+                    <a href="Solution_all.html">ALL</a>
+                    <a href="Solution_oran.html">ORAN</a>
+                    <a href="Solution_5G.html">5GC</a>
+                </div>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn">Products <i class="fa fa-caret-down"></i></button>
+            <div class="subnav-content">
+                <a href="Product_CloudPF.html">CloudPF</a>
+                <a href="Product_CU_DU.html">CUDU</a>
+                <a href="#package">vEMS</a>
+                <a href="#express">RU</a>
+            </div>
+        </div>
+  </div>
+    <!-- A functional html code-->
+   
+    <div class="janak">
+        <fieldset>
+
+            <legend>Upload your Release Note with Details </legend><br>  
+                Please Choose Your Release Note File:<br>
+                <input type="file" id="fileUpload"><br>
+                
+                <label for="bucket"> Please Select Your Bucket To Upload:</label>
+               <br>
+               
+                <select id="ddlViewBy" name="bucket" class="myselect">
+                    <optgroup label="Buckets">
+                        <option value="" disabled selected hidden style="font-size:14px;">Choose Bucket...</option>
+                        <option value="uploadtestorms">uploadtestorms</option>
+                        <option value="janaktest">janaktest</option>
+                        <option value="orms4321">orms4321</option>
+                    </optgroup>
+                </select><br>
+
+                
+                <label for="Pnmae"> Please Select Solution Name:</label>
+               <br>
+               
+                <select id="sname" name="Pnmae" class="myselect">
+                    <optgroup label="Solution Name">
+                        <option value="" disabled selected hidden style="font-size:14px;">Choose Solution Name:</option>
+                        <option value="5G_RAK_OCP_HSC">5G_RAK_OCP_HSC</option>
+                        <option value="5G_MAV_VMW_EDG">5G_MAV_VMW_EDG</option>
+                        <option value="4G5G_non_OCP_SGC">4G5G_non_OCP_SGC</option>
+                        <option value="5G_non_OCP_SGC">5G_non_OCP_SGC</option>
+                        
+                    </optgroup>
+                </select><br>
+                <label for="stype"> Please Select Solution Type:</label>
+               <br>
+               
+                <select id="stype" name="stype" class="myselect">
+                    <optgroup label="Solution Type">
+                        <option value="" disabled selected hidden style="font-size:14px;">Choose Solution Type:</option>
+                        <option value="ORAN">ORAN</option>
+                        <option value="5GC">5GC</option>
+                    </optgroup>
+                </select><br>
+                <label for="customer"> Please Choose Released Customer Name:</label>
+               <br>
+                <select id="customer" name="customer" class="myselect">
+                    <optgroup label="Customer Name">
+                        <option value="" disabled selected hidden style="font-size:14px;">Choose Customer Name</option>
+                        <option value="TF-Germany">TF-Germany</option>
+                        <option value="TF-Spain">TF-Spain</option>
+                        <option value="TF-Brazil">TF-Brazil</option>
+                        <option value="Thai AIS">Thai AIS</option>  
+                    </optgroup>
+                </select><br>
+                <label for="label"> Please Select Labels:</label>
+               <br>
+                <select id="label" name="label" class="myselect" >
+                    <optgroup label="Label">
+                        <option value="" disabled selected hidden style="font-size:14px;">Choose Label </option>
+                        <option value="4G">4G</option>
+                        <option value="5G">5G</option>
+                        <option value="CU">CU</option>
+                        <option value="DU">DU</option>  
+                        <option value="vEMS">vEMS</option>
+                        <option value="CloudPF">CloudPF</option>
+                    </optgroup>
+                </select><br>
+            
+                Please Enter The Description Of Product:<br>
+                <input type="text" id="metadata2" class="myselect" value="This is Solution of"><br>
+                
+                Please Enter The No. of Items:<br>
+                <input type="text" id="I1"  ><br>
+                
+                Please Enter Major release version:<br>
+                <input type="text" id="I2" ><br>
+                
+                Please Enter Minor release version:<br>
+                <input type="text" id="I3"  ><br>
+                
+                Please Enter Patch release version:<br>
+                <input type="text" id="I4"  ><br>
+
+            
+                        
+                <button onclick="s3upload()">Submit</button><br>
+                <br>
+                <script src="https://sdk.amazonaws.com/js/aws-sdk-2.726.0.min.js"></script>
+                <progress max=”100” value=”0”></progress>
+                
+        </fieldset>
+    <div>
+<div class="fixed-footer" style="text-align: center;">
+    <div class="container">Copyright &copy; NEC Corporation</div>        
+</div>
+    
+</body>
+</html>

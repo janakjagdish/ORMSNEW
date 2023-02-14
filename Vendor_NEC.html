@@ -1,0 +1,167 @@
+<!Doctype Html>  
+<Html>     
+<Head>      
+<script type="text/javascript" src="jquery-3.6.0.min.js">  
+</script>  
+    <script src=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+<Title>     
+NEC-CP Package Management System 
+</Title>  
+<link rel="stylesheet" href="css/style.css"/>
+</Head> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<Body>
+  <div class="topnav-right" style="align-self: flex-end; margin-top: 10px;">
+    <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+    <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+   </div>
+   
+   <div class="fixed-footer" style="text-align: center;">
+       <div class="container">Copyright &copy; NEC Corporation</div>        
+   </div>
+   
+   
+   <!-- Side navigation -->
+   <a style="font-size: 25px; color: black; background-color: lightblue;">ORMS Web</a><br></br>
+   <div class="sidenav">
+      <a href="#"><i class="fa fa-fw fa-wrench"> Solutions</i></a>
+     <a href="#"><i class="fa fa-fw fa-user"> Products</i></a>
+   </div>
+
+<div align="center" class="table table-responsive">
+  <br>  </br><b style="height: 40%;">Filter table with any keyword:
+  <input id="search" type="text"
+      placeholder="Search here">
+  </b>
+ 
+  <table id="detail_table" class="detail">
+    <thead> 
+      <tr style="background-color: lightblue;">
+        <th>Show Products</th> 
+        <th>Solution Version</th>
+        <th>Last Update</th>
+        <th>Status</th>
+        <th>Release Date</th>
+        <th>Number of Items</th>
+        <th>Test Environment Condition</th>
+      </tr>
+    </thead>
+    <tbody id="geeks">
+      <tr class="parent" id="row123" title="Click to expand/collapse" style="cursor: pointer;">
+        <td><label><input type="checkbox" id="check" name="show_prod" value="Show">Show Items</label></td>
+        <td >CloudPF_Openshift        </td>
+          <td ><a href="#">NEC</td>
+          <td ><a href="#">REL-PRODUCT.CloudPF_OCP.NEC.01.02.301        </td>
+          <td>Wait for Product Confirm        </td>
+          <td>10-08-2022        </td>
+          <td>22-08-2022</td>
+          <td> <a href="Solution_oran.html">ORAN</a>, Cloud_PF     </td>
+          <td>NEC-CP cloud platform Openshift        </td>
+      </tr>   
+      <tr class="child-row123" style="display: none;">  
+          <th>Name            </th>  
+          <th>Version     </th> 
+          <th>md5sum           </th> 
+          <th>Description          </th> 
+          <th>Download           </th> 
+      </tr> 
+    <tr class="child-row123" style="display: none;">
+        <td>ansible-contents        </td>  
+        <td>R01.02.003_00        </td>  
+        <td>8af864f0578e315407edb18b842bcc5b        </td>  
+        <td></td> 
+        <td><input id="check11" type="checkbox" name="prod" value="https://s3.console.aws.amazon.com/s3/object/nec-cp-release-mng-cloud-pf?region=ap-northeast-1&prefix=cloud_pf_rhocp/release/Rel.ORAN.5G.NEC.OCP.01.001/rhel-rpms/nec-cp_package_R01.01.001_00.nec-cp-customer-oran_rhel-rpms_md5.txt"></td>
+      </tr>
+    <tr class="child-row123" style="display: none;">
+      <td>basic-contents      </td> 
+        <td>R01.02.005_00        </td>   
+        <td>c0e156f404c856465552f14671dba36d        </td>  
+        <td></td>
+        <td><input id="check12" type="checkbox" name="prod" value="https://s3.console.aws.amazon.com/s3/object/nec-cp-release-mng-cloud-pf?region=ap-northeast-1&prefix=cloud_pf_rhocp/release/Rel.ORAN.5G.NEC.OCP.01.001/ansible-contents/nec-cp_package_R01.01.001_00.nec-cp-customer-oran_ansible-contents.tgz"></td>
+    </tr>   
+    <tr class="parent" id="row456" title="Click to expand/collapse" style="cursor: pointer;"> 
+        <td><label><input type="checkbox" id="check" name="show_prod" value="Show">Show Items</label></td> 
+        <td >CloudPF_Openshift        </td>
+          <td ><a href="#">NEC</td>
+          <td ><a href="#">REL-PRODUCT.CloudPF_OCP.NEC.01.02.302        </td>
+          <td>Wait for Product Confirm        </td>
+          <td>10-08-2022        </td>
+          <td>22-08-2022</td>
+          <td> <a href="Solution_oran.html">ORAN</a>, Cloud_PF       </td>
+          <td>NEC-CP cloud platform Openshift        </td>
+    </tr>  
+    <tr class="child-row456" style="display: none;">  
+      <th>Name            </th>  
+      <th>Version     </th> 
+      <th>md5sum           </th> 
+      <th>Description          </th> 
+      <th>Download           </th> 
+  </tr> 
+<tr class="child-row456" style="display: none;">
+    <td>ansible-contents        </td>  
+    <td>R01.02.003_00        </td>  
+    <td>8af864f0578e315407edb18b842bcc5b        </td>  
+    <td></td> 
+    <td><input id="check11" type="checkbox" name="prod" value="https://s3.console.aws.amazon.com/s3/object/nec-cp-release-mng-cloud-pf?region=ap-northeast-1&prefix=cloud_pf_rhocp/release/Rel.ORAN.5G.NEC.OCP.01.001/rhel-rpms/nec-cp_package_R01.01.001_00.nec-cp-customer-oran_rhel-rpms_md5.txt"></td>
+  </tr>
+<tr class="child-row456" style="display: none;">
+  <td>basic-contents      </td> 
+    <td>R01.02.005_00        </td>   
+    <td>c0e156f404c856465552f14671dba36d        </td>  
+    <td></td>
+    <td><input id="check12" type="checkbox" name="prod" value="https://s3.console.aws.amazon.com/s3/object/nec-cp-release-mng-cloud-pf?region=ap-northeast-1&prefix=cloud_pf_rhocp/release/Rel.ORAN.5G.NEC.OCP.01.001/ansible-contents/nec-cp_package_R01.01.001_00.nec-cp-customer-oran_ansible-contents.tgz"></td>
+</tr>   
+    </tbody>
+  </table>
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Auto width -->
+<button class="btn" onclick="abc();"><i class="fa fa-download"></i> Download</button>  
+
+
+  <script>
+  function abc()
+  {
+  window.location.href='solution_version.php';
+  }
+  
+    $(document).ready(function() {
+      $("#gfg").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#geeks tr").filter(function() {
+          $(this).toggle($(this).text()
+          .toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+
+  </script>
+
+<script type="text/javascript">  
+    $(document).ready(function () {  
+            $('tr.parent')  
+                .css("cursor", "pointer")  
+                .attr("title", "Click to expand/collapse")  
+                .click(function () {  
+                    $(this).siblings('.child-' + this.id).toggle();  
+                });  
+            $('tr[@class^=child-]').hide().children('td');  
+    }); 
+    $(document).ready(function () {
+$('#checkbox').change(function () {
+    if (!this.checked) 
+        $('#row').fadeIn('slow');
+    else 
+        $('#row').fadeOut('slow');
+});
+});
+</script>
+
+</Body>   
+</Html>  

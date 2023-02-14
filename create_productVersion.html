@@ -1,0 +1,170 @@
+<!doctype html>
+<head>
+    
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.357.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- <script type="text/javascript"> 
+//Bucket Configurations
+
+    function s33upload() {  
+        let bucket = document.getElementById("ddlViewBy").value;
+        //Bucket Configurations
+        var bucketName =  bucket;
+        var bucketRegion = 'ap-south-1';
+        var IdentityPoolId = 'ap-south-1:8d50c9ad-a0f9-4b83-a864-63751f4f3f68';
+
+        AWS.config.update({
+                region: bucketRegion,
+                credentials: new AWS.CognitoIdentityCredentials({
+                IdentityPoolId: IdentityPoolId
+                })
+            });
+
+            var s3 = new AWS.S3({
+                apiVersion: '2006-03-01',
+                params: {Bucket: bucketName}
+            });
+              var files = document.getElementById('fileUpload').files;
+              var k;
+              var l =  document.getElementById("pname").value;
+                if (l =="not in list"){
+                    var k = document.getElementById("pname1").value;
+                }
+                else{
+                    var k = l;
+                }
+              let Description = document.getElementById("metadata2").value;
+              let Label = document.getElementById("label").value;
+              /*let LastUpdate = document.getElementById("metadata4").value;*/
+              let vendor = document.getElementById("vendor").value;
+              let item = document.getElementById("I1").value;
+              let element4 = document.getElementById("I2").value;
+              let element5 = document.getElementById("I3").value;
+              let element6 = document.getElementById("I4").value;
+              let date1 = document.getElementById("metadata9").value;
+
+              if (files) 
+              {
+                  var file = files[0];
+                  var fileName = file.name;
+                  var filePath = fileName;
+                  var fileUrl = 'https://' + bucketRegion + '.amazonaws.com/' +bucketName+'/';
+                 
+                  s3.upload({
+                                  Key: filePath,
+                                  Body: file,
+                                  ACL: 'public-read',
+                                  Metadata: {ProductName:k, Description:Description,Label:Label,Date:date1, vendor:vendor,item:item,element4:element4,element5:element5,element6:element6}
+                              }, function(err, data) {
+                                  if(err) {
+                                      reject('error');
+                                  }
+                                  
+                                  alert('Successfully Uploaded!');
+                              }).on('httpUploadProgress', function (progress) {
+                                  var uploaded = parseInt((progress.loaded * 100) / progress.total);
+                                  $("progress").attr('value', uploaded);
+                              });
+              }
+                      
+    };
+ 
+</script> -->
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<script src="./upload/uploadProductVersion.js" defer></script>
+<script type="text/javascript" src="jquery-3.6.0.min.js">  </script>  
+<Title>     
+    NEC-CP Package Management System 
+</Title>  
+    <link rel="stylesheet" href="css/release.css"/>
+    
+</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+     
+  <div class="topnav-right" style="align-self: flex-end; margin-top: 10px;">
+   <a class="active" href="Home.html"><i class="fa fa-fw fa-home"></i> Home</a>
+   <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+   <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+  </div>
+
+  
+            <!-- Side navigation -->
+    <a href="Home.html" style="font-size: 24px; color: navy; "><u>ORMS Web</u></a>
+    <div class="sidenav">
+    <div class="subnav">
+      <button class="subnavbtn">Solution Management <i class="fa fa-caret-down"></i></button>
+      <div class="subnav-content">
+        <a href="create_solution.html">Create Solution</a>
+        <a href="create_solutionVersion.html">Add Solution Version</a>
+        <a href="create_testReport.html">Register Test Report</a>
+      </div>
+  </div>
+
+  <div class="subnav">
+      <button class="subnavbtn">Product Management <i class="fa fa-caret-down"></i></button>
+      <div class="subnav-content">
+        <a href="create_product.html">Create Product</a>
+        <a href="create_productVersion.html">Add Product Version</a>
+        <a href="Upload_Package.html">Register Packages</a>
+        <a href="create_releaseNote.html">Register Release Note</a>
+      </div>
+          </div>
+            </div>
+    <!-- A functional html code-->
+   <h3 style="text-align: center;">Add Product Version</h3>
+    <div class="janak">
+        <fieldset>
+            <div class="one">
+            <label for="vendor"> Please Select Vendor Name:</label>
+            <br>
+             <select id="vendor" name="vendor" class="myselect">
+                 <optgroup label="Vendor Name">
+                     <option value="" disabled selected hidden style="font-size:14px;">Choose Vendor Name</option>
+                 </optgroup>
+             </select><br>
+             <br>
+
+             <label for="Pnmae"> Please Select Product Name:</label>
+             <br>
+             
+              <select id="productSelect" name="Pnmae" class="myselect">
+                  <optgroup label="Product Name">
+                      <option value="" disabled selected hidden style="font-size:14px;">Choose Product Name:</option>
+                  </optgroup>
+              </select><br>
+              <br>
+ 
+              Please Enter Product Version Name:<br>
+           <input type="text" id="metadata2" class="myselect" value=""><br>
+           <br>
+
+
+                   Please Enter The Release Date Of Product:<br>
+                   <input type="text" id="I1" class="myselect" placeholder="Release Date[yyyy-mm-dd]"><br>
+                
+                <br>
+             <br>
+
+             
+                Please Choose Your Release Note File:<br>
+   
+            <input type="file" id="fileUpload"><br>
+            <br><br>
+           <button class="one" onclick="uploadData()">Submit</button><br>
+     
+
+
+            </div>
+            <dialog id="confirmationDialog">
+                <button id="cancelBtn">Cancel</button>
+                <button id="confirmBtn">Confirm</button>
+            </dialog>
+        </fieldset>
+    <div>
+<div class="fixed-footer">
+    <div class="container">Copyright &copy; NEC Corporation</div>        
+</div>
+    
+</body>
+</html>
