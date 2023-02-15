@@ -1,0 +1,8 @@
+{
+  "realm": "ORMS",
+  "auth-server-url": "http://23.23.49.229:8080/auth/",
+  "ssl-required": "external",
+  "resource": "ormsclient",
+  "public-client": true,
+  "confidential-port": 0
+}
