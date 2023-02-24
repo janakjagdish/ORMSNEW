@@ -2,10 +2,10 @@
 const S3TableBody = document.querySelector("table > tbody#S3Body");
 let id = 123;
 AWS.config.update({
-  region: "eu-west-2",
-  credentials: new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: "eu-west-2:06502587-7909-4d15-865f-778bff643ebd",
-  }),
+  region: "us-east-1",
+  endpoint: "https://s3.us-east-1.amazonaws.com",
+  accessKeyId: "AKIAYX72S4DQCTZ3P7IV",
+  secretAccessKey: "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",
 });
 const ProductNameInput = document.getElementById("Product Name");
 const NumOFitemsInput = document.getElementById("NumOFitems");
@@ -18,7 +18,7 @@ console.log(docClient);
 async function s3upload() {
   const s3 = new AWS.S3({
     apiVersion: "2012-10-17",
-    params: { Bucket: "upload-package" },
+    params: { Bucket: "uploadpackages1" },
   });
   if (
     !(
@@ -41,7 +41,7 @@ async function s3upload() {
   const ReleaseNoteFile = ReleaseNoteFileInput.files[0];
   const ReleaseNoteFileInputName = ReleaseNoteFile.name;
   const params = {
-    Bucket: "upload-package",
+    Bucket: "uploadpackages1",
     Body: ReleaseNoteFile,
     Key: ReleaseNoteFileInputName,
   };
@@ -57,7 +57,7 @@ async function s3upload() {
           S3TableData: { Items },
         } = await (
           await fetch(
-            "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/s3Bucket",
+            "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/s3Bucket",
             {
               method: "POST",
               headers: {

@@ -11,17 +11,17 @@ const fileInput = document.querySelector("#fileUpload");
 const submitBtn = document.querySelector("button#four");
 const solutionVersionsObj = {};
 AWS.config.update({
-  region: "eu-west-2",
-  endpoint: "https://s3.eu-west-2.amazonaws.com",
-  accessKeyId: "AKIAZ4L4W27ZJZZM7W5H",
-  secretAccessKey: "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",
+  region: "us-east-1",
+  endpoint: "https://s3.us-east-1.amazonaws.com",
+  accessKeyId: "AKIAYX72S4DQCTZ3P7IV",
+  secretAccessKey: "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",
 });
 (async () => {
   const {
     solutions: { Items: Solutions },
   } = await (
     await fetch(
-      "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/solution"
+      "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/solution"
     )
   ).json();
   Solutions?.map(async ({ name }) => {
@@ -30,13 +30,7 @@ AWS.config.update({
     solutionOptgroup.append(option);
     const { Items: solutionVersions } = await (
       await fetch(
-        "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/solutionPage",
-        {
-          method: "GET",
-          headers: {
-            id: name,
-          },
-        }
+        `https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/solutionPage/${name}`
       )
     ).json();
     solutionVersionsObj[name] = solutionVersions;
@@ -56,8 +50,8 @@ solutionOptgroup.parentElement.onchange = ({ target: { value } }) => {
 submitBtn.onclick = UploadReport;
 const s3 = new AWS.S3({
   apiVersion: "2012-10-17",
-  endpoint: "https://s3.eu-west-2.amazonaws.com",
-  params: { Bucket: "neccp-release-mng-solution" },
+  endpoint: "https://s3.us-east-1.amazonaws.com",
+  params: { Bucket: "ormsolution" },
 });
 function UploadReport() {
   if (!solutionOptgroup.parentElement.value) {
@@ -75,7 +69,7 @@ function UploadReport() {
   submitBtn.disabled = true;
   s3.upload(
     {
-      Bucket: "neccp-release-mng-solution",
+      Bucket: "ormsolution",
       Key: file.name,
       Body: file,
     },
@@ -94,7 +88,7 @@ function UploadReport() {
       if (!solutionVersionObj) return;
       const uploadData = await (
         await fetch(
-          "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/product",
+          "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/product",
           {
             method: "PUT",
             headers: {

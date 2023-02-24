@@ -4,15 +4,15 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 AWS.config.update({
-  region: "eu-west-2",
-  endpoint: "https://s3.eu-west-2.amazonaws.com",
-  accessKeyId: "AKIAZ4L4W27ZJZZM7W5H",
-  secretAccessKey: "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",
+  region: "us-east-1",
+  endpoint: "https://s3.us-east-1.amazonaws.com",
+  accessKeyId: "AKIAYX72S4DQCTZ3P7IV",
+  secretAccessKey: "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",
 });
 const s3 = new AWS.S3({
   apiVersion: "2012-10-17",
-  endpoint: "https://s3.eu-west-2.amazonaws.com",
-  params: { Bucket: "neccp-release-mng-solution" },
+  endpoint: "https://s3.us-east-1.amazonaws.com",
+  params: { Bucket: "ormsolution" },
 });
 const solutionOptgroup = document.querySelector("#Solution optgroup");
 const vendorOptgroup = document.querySelector("#vendor optgroup");
@@ -43,13 +43,13 @@ customerOption.onclick = toggleView;
 (async () => {
   const data = await (
     await fetch(
-      "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/solution"
+      "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/solution"
     )
   ).json();
   if (!data?.solutions) return;
   const { Items: Customers } = await (
     await fetch(
-      `https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/customers`
+      `https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/customers`
     )
   ).json();
   Customers?.map(({ Name }) => {
@@ -80,13 +80,7 @@ customerOption.onclick = toggleView;
     ProductObjects[i.productName] = [];
     const data = await (
       await fetch(
-        "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/productPage",
-        {
-          method: "GET",
-          headers: {
-            id: i.productName,
-          },
-        }
+        `https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/productPage/${i.productName}`
       )
     ).json();
     ProductObjects[`${i.productName}Versions`] = data?.Items || [];
@@ -195,7 +189,7 @@ async function UploadData(solutionVersion, DateFormat) {
     isThereIsADqaReport = true;
     s3.upload(
       {
-        Bucket: "neccp-release-mng-solution",
+        Bucket: "ormsolution",
         Body: dqaReport,
         Key: dqaReport.name,
       },
@@ -218,7 +212,7 @@ async function UploadData(solutionVersion, DateFormat) {
     clearInterval(interval);
     const UploadData = await (
       await fetch(
-        "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/createSolutionVersion",
+        "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/createSolutionVersion",
         {
           method: "POST",
           headers: {

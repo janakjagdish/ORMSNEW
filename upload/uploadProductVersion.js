@@ -5,15 +5,15 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 AWS.config.update({
-  region: "eu-west-2",
-  endpoint: "https://s3.eu-west-2.amazonaws.com",
-  accessKeyId: "AKIAZ4L4W27ZJZZM7W5H",
-  secretAccessKey: "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",
+  region: "us-east-1",
+  endpoint: "https://s3.us-east-1.amazonaws.com",
+  accessKeyId: "AKIAYX72S4DQCTZ3P7IV",
+  secretAccessKey: "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",
 });
 const s3 = new AWS.S3({
   apiVersion: "2012-10-17",
-  endpoint: "https://s3.eu-west-2.amazonaws.com",
-  params: { Bucket: "neccp-release-mng-solution" },
+  endpoint: "https://s3.us-east-1.amazonaws.com",
+  params: { Bucket: "ormsolution" },
 });
 const VendorData = {
   data: {},
@@ -30,7 +30,7 @@ console.log(confirmationDialog);
 (async () => {
   const data = await (
     await fetch(
-      "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/solution"
+      "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/solution"
     )
   ).json();
   if (!data?.productData) return;
@@ -138,7 +138,7 @@ function uploadDataToDb(DateFormat) {
     isThereIsAReleaseNoteFile = true;
     s3.upload(
       {
-        Bucket: "neccp-release-mng-solution",
+        Bucket: "ormsolution",
         Body: releaseNoteFile,
         Key: releaseNoteFile.name,
       },
@@ -162,7 +162,7 @@ function uploadDataToDb(DateFormat) {
     clearInterval(interval);
     const uploadData = await (
       await fetch(
-        "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/createProductVersion",
+        "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/createProductVersion",
         {
           method: "POST",
           headers: {

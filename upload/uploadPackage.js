@@ -6,9 +6,10 @@ window.addEventListener("DOMContentLoaded", () => {
 const S3TableBody = document.querySelector("table > tbody#S3Body");
 let id = 2;
 AWS.config.update({
-  region: "eu-west-2",
-  accessKeyId: "AKIAZ4L4W27ZJZZM7W5H",
-  secretAccessKey: "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",
+  region: "us-east-1",
+  endpoint: "https://s3.us-east-1.amazonaws.com",
+  accessKeyId: "AKIAYX72S4DQCTZ3P7IV",
+  secretAccessKey: "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",
 });
 const PackageFileInput = document.getElementById("fileUpload");
 const med5sumFileInput = document.getElementById("med5sumUpload");
@@ -28,20 +29,14 @@ const productVersions = {};
     productData: { Items: ProductItems },
   } = await (
     await fetch(
-      "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/product"
+      "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/product"
     )
   ).json();
   products.data = ProductItems;
   ProductItems.map(async ({ productName }) => {
     const { Items } = await (
       await fetch(
-        "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/productPage",
-        {
-          method: "GET",
-          headers: {
-            id: productName,
-          },
-        }
+        `https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/productPage/${productName}`
       )
     ).json();
     if (!Items?.length) return;
@@ -156,7 +151,7 @@ async function s3upload() {
     productData: { Items: Products },
   } = await (
     await fetch(
-      "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/product"
+      "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/product"
     )
   ).json();
   const selectedProduct = Products.filter(
@@ -169,15 +164,15 @@ async function s3upload() {
   const FolderName = `${selectedProduct[0].Vendor?.toLowerCase()}1234`;
   const s3 = new AWS.S3({
     apiVersion: "2012-10-17",
-    endpoint: "https://s3.eu-west-2.amazonaws.com",
-    params: { Bucket: "productspackages" },
+    endpoint: "https://s3.us-east-1.amazonaws.com",
+    params: { Bucket: "productpackage" },
   });
   packages.map((index, ind) => {
     let download = "",
       med5sum = "";
     s3.upload(
       {
-        Bucket: "productspackages",
+        Bucket: "productpackage",
         Body: index.DownloadFileBlob,
         Key: FolderName + "/" + index.DownloadFileBlob.name,
       },
@@ -194,7 +189,7 @@ async function s3upload() {
 
     s3.upload(
       {
-        Bucket: "productspackages",
+        Bucket: "productpackage",
         Body: index.med5sumFileBlob,
         Key: FolderName + "/" + index.med5sumFileBlob.name,
       },
@@ -213,7 +208,7 @@ async function s3upload() {
       clearInterval(interval);
       const { Items: packages } = await (
         await fetch(
-          "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/Packages"
+          "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/Packages"
         )
       ).json();
       const selectedItem = packages?.filter(
@@ -240,7 +235,7 @@ async function s3upload() {
 
       const data = await (
         await fetch(
-          "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/uploadPackage",
+          "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/uploadPackage",
           {
             method: "POST",
             headers: {

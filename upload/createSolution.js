@@ -12,13 +12,13 @@ const customerUl = document.querySelector("#customer ul");
 (async () => {
   const data = await (
     await fetch(
-      "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/product"
+      "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/product"
     )
   ).json();
   if (!data?.productData) return;
   const { Items: Customers } = await (
     await fetch(
-      `https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/customers`
+      `https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/customers`
     )
   ).json();
   const {
@@ -147,7 +147,7 @@ function isProductsSelected(object) {
 async function UploadData() {
   const CreateSolution = await (
     await fetch(
-      "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/createSolution",
+      "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/createSolution",
       {
         method: "POST",
         headers: {
@@ -172,7 +172,7 @@ async function UploadData() {
     VendorObjects[key].map(async (index) => {
       const UploadData = await (
         await fetch(
-          "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/createSolution",
+          "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/createSolution",
           {
             method: "PUT",
             headers: {

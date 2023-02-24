@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
 (async () => {
   const { Items: Vendors } = await (
     await fetch(
-      `https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/vendor`
+      `https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/vendor`
     )
   ).json();
   const VendorOptgroup = document.querySelector("#vendor optgroup");
@@ -38,7 +38,7 @@ async function submit_data() {
     productData: { Items },
   } = await (
     await fetch(
-      "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/product/"
+      "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/product/"
     )
   ).json();
 
@@ -93,7 +93,7 @@ function isAllPackageInputFilled() {
 async function uploadData(includedPackages) {
   const UploadData = await (
     await fetch(
-      "https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/uploadProduct",
+      "https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/uploadProduct",
       {
         method: "POST",
         headers: {

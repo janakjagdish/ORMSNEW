@@ -13,7 +13,7 @@ async function UploadVendor() {
   console.log("test");
   const { Items: Vendors } = await (
     await fetch(
-      `https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/vendor`
+      `https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/vendor`
     )
   ).json();
   if (Vendors?.filter(({ VendorName }) => Vendor.value === VendorName)[0]) {
@@ -23,7 +23,7 @@ async function UploadVendor() {
   try {
     const Data = await (
       await fetch(
-        `https://ch5zkb6gti.execute-api.eu-west-2.amazonaws.com/staging/api/product`,
+        `https://5k5z2pk02f.execute-api.eu-west-2.amazonaws.com/staging/api/product`,
         {
           method: "PUT",
           headers: {
