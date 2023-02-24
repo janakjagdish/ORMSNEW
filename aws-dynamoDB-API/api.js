@@ -3,10 +3,10 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const awsConfig = {
-  region: "eu-west-2",
-  endpoint: "https://dynamodb.eu-west-2.amazonaws.com",
-  accessKeyId: "AKIAZ4L4W27ZJZZM7W5H",
-  secretAccessKey: "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",
+  region: "us-east-1",
+  endpoint: "https://dynamodb.us-east-1.amazonaws.com",
+  accessKeyId: "AKIAYX72S4DQCTZ3P7IV",
+  secretAccessKey: "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",
 };
 AWS.config.update(awsConfig);
 const docClient = new AWS.DynamoDB.DocumentClient();
